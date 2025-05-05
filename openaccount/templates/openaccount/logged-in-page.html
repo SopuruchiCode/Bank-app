@@ -1,0 +1,20 @@
+{% extends 'homepage.html' %}
+{% block title %} {{account_no}} {% endblock %}
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'logged-in-page.css' %}">
+    <div class="balance-div">
+        Balance: ${{balance}}
+    </div>
+    <div> WELCOME </div>
+    <p class="name"> Hi {{name}}</p>
+    <p class="request"> What would you like us to do for you? </p>
+    <div class="transaction">
+        <a href="{% url '%}"><button> Transfer </button></a>
+
+        <a><button> Deposit </button></a>
+ 
+        <a><button> Withdraw </button></a>
+        
+    </div>
+{% endblock %}

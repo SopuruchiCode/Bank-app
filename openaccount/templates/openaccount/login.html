@@ -1,0 +1,27 @@
+{% extends 'homepage.html' %}
+
+{% block title %}
+    LOGIN
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'login.css' %}">
+    <div class="login-form">
+        <form method="post" action="{% url 'loginform' %}">
+            {% csrf_token %}
+            <p> LOGIN FORM </p>
+            {% for field in form %}
+            <div class="form-input">
+                {{field}} {{field.errors}}
+
+            </div>
+            {% endfor %}
+
+            {{form.non_field_errors}}
+            {{wrong_pin_message}}
+            <p><button type="submit"> LOGIN </button></p>
+        </form>
+    </div>
+
+{% endblock %}

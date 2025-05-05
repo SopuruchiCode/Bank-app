@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title%} transfer {% endblock %}
+
+{%block content%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'maketransfer/css/transfer.css'%}">
+{% if user.is_authenticated %}
+    <div class="form-div">
+        <div><div class="list-group">
+            <select class="form-select list-group-item">
+              <option selected> Account </option>
+              {%for account in accounts%}
+              <option value="{{account}}">{{account}}</option>
+              {% endfor %}
+            </select>
+            <span class="list-group-item amount-display">
+                Check Balance
+            </span>
+          </div></div>
+        <div class="transfer-form"> Transfer Form </div>
+        <form method="post">
+            {% csrf_token %}
+            
+            {% for field in form %}
+            <div>
+                {{field}} {{field.errors}}
+            </div>
+            {% endfor %}
+            {{form.non_field_errors}}
+            <button type="submit" class="btn btn-secondary transfer-button-js"> Transfer </button> 
+        </form>
+    </div>
+    
+
+{% else %}
+    <div>
+        You need to login first
+        <a href="{% url 'mylogin' %}"><button class="login"> Login </button></a>
+    </div>
+{% endif %}
+<script src="{% static 'maketransfer/js/transfer.js'%}"></script>
+<script>
+    let success = "{{success}}"
+    if(success != ""){
+        alert(success)
+     }
+</script>
+{% endblock %}

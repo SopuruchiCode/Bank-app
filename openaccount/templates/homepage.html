@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} HOME {% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'homepage.css'%}">
+</head>
+<body>
+    {% block content %}
+    <div>
+        <p class="welcome"> WELCOME TO DJANBANK </p>
+        
+        {% if user.is_authenticated %}
+
+        <p> Hi {{ user.first_name }}</p>
+        <p> We are delighted to serve you </p>
+        <p> What would you like to do? </p>
+       
+        {% else %}
+        <a href="{% url 'accountform' %}"><button> Create Account</button></a>
+        <a href="{% url 'loginform' %}"><button class="login"> Login </button></a>
+        
+
+        {% endif %}
+        
+    </div>
+
+    {% endblock %}
+</body>
+</html>

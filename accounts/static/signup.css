@@ -1,0 +1,21 @@
+body{
+    text-align: center;
+}
+
+input{
+    padding: 10px 10px;
+    border-radius: 7px;    
+    margin: 3px 0px;
+    width:200px;
+}
+
+form{
+    text-align: center;
+
+}
+ul{
+    list-style: none;
+} 
+.login{
+    margin: 4px 5px;
+}

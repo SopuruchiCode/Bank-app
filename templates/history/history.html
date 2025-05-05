@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static%}
+<link rel="stylesheet" href="{% static 'history/css/history.css'%}">
+<div class="sidenav">
+  <div><div class="list-group">
+    {%csrf_token%}
+    <select class="form-select list-group-item history-acc-select">
+      <option selected>Choose Account</option>
+      {%for account in accounts%}
+      <option value="{{account}}">{{account}}</option>
+      {% endfor %}
+    </select>
+  </div></div>
+  <div class="transaction-option transfers-view"><span>Transfers</span></div>
+  <div class="transaction-option withdrawals-view"><span>Withdrawals</span></div>
+  <div class="transaction-option deposits-view"><span>Deposits</span></div>
+  <!-- <a href="#">Contact</a> -->
+</div>
+
+<div class="history-main">
+  
+  
+</div>
+</div>
+<script src="{% static 'history/js/history.js'%}"></script>
+{% endblock %}

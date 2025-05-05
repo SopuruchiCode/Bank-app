@@ -1,0 +1,68 @@
+{% extends 'base.html'%}
+    {% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+    <div class="main">
+      
+        <div><div class="list-group">
+          <select class="form-select list-group-item"  name="account-balance-checker">
+            <option selected> Choose account</option>
+            {%for account in accounts%}
+            <option value="{{account}}" class="js-acc-balance">{{account}}</option>
+            {% endfor %}
+          </select>
+          <span class="list-group-item amount-display">
+            Balance
+          </span>
+        </div><p class="welcome"> WELCOME TO DJANBANK </p></div>
+        
+        {% if user.is_authenticated %}
+
+        <p> Hi {{ user.first_name }}</p>
+        <p> We are delighted to serve you </p>
+        <p> What would you like to do? </p>
+        {% if user.is_superuser %}
+        <a href="/admin"><button class="btn btn-secondary"> Admin </button></a>
+        <a href="{% url 'transfer' %}"><button class="btn btn-secondary" > Transfer </button></a>
+        
+        {% endif %}
+        {% else %}
+        <p> You are not logged in bro.
+          <a href="{% url 'mylogin' %}">
+            <button class="login btn btn-secondary"> Login 
+
+            </button>
+          </a>
+        </p>
+        <p> Already have an account 
+          <a href="{% url 'signup' %}">
+            <button class="btn btn-secondary"> Signup </button>
+          </a>
+        </p>
+        
+
+        {% endif %}
+        
+    </div>
+    <script src="{% static 'js/home.js'%}">
+    </script>
+    <!-- <script>
+      const accountDataJSON = "{{accountData|escapejs}}";
+      const accountData = JSON.parse(accountDataJSON);
+      const accountOptionElements = document.querySelector(".js-acc-balance");
+      const amountDisplay = document.getElementById("amount-display");
+
+      
+      function balanceDisplay(elem){
+        value = String(elem.value)
+        balance = accountData[value]
+        console.log(balance)
+        // amountDisplay.innerHTML = balance
+      };
+      accountOptionElements.onclick = function(){console.log(90)};
+
+      // for(i of accountOptionElements){
+      //   i.addEventListener("click",)
+      // }
+    </script> -->
+    {% endblock %}

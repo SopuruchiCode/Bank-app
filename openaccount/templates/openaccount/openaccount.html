@@ -1,0 +1,37 @@
+{% extends 'homepage.html'%}
+{% block title%} Account Form {% endblock %}
+
+{%block content%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'openaccount.css'%}">
+
+<div class="bank-name">
+    <p class="bank-name"> DJANBANK </p>
+</div>
+
+<div class="account-form">
+    <form method="post" action="{% url 'accountform'%}">
+        {%csrf_token%}
+        
+        {% for field in form%}
+        <div class="form-div">
+            {{field}}  {{field.errors}}
+        </div>
+        {% endfor %}
+        {{form.non_field_errors}}
+        
+        <button type="submit" class="js-submit"> SUBMIT </button>
+    </form>
+    
+    
+
+</div>
+<script>
+    let datas = "{{account}}";
+    if (datas !== ""){
+    alert(`your acc no: ${datas}`);};
+
+</script>
+<script src="{% static 'openaccount.js'%}"></script>
+
+{% endblock %}

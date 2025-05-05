@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{%static 'withdrawal/css/withdrawal.css'%}">
+<div class="main">
+    <div class="withdraw-main">
+        <p class="form-title">Withdrawal Form</p>
+    <form method="post" id="withdrawal-form">
+        {% csrf_token %}
+        {% for field in form %}
+            <div>
+                {{field}}
+            </div>
+            <ul id="{{field.label|lower|cut:' '}}ErrorList">
+                
+            </ul>
+        {% endfor %}
+            <ul id="__all__ErrorList"></ul>
+        <!-- {{form.non_field_errors}} -->
+        <button type="submit" class="withdraw-button"> WITHDRAW </button>
+    </form>
+    </div>
+</div>
+<script src="{%static 'withdrawal/js/withdrawal.js'%}"></script>
+{% endblock %}

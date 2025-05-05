@@ -1,0 +1,15 @@
+input{
+    padding: 10px 10px;
+    border-radius: 7px;
+}
+
+.login-form{
+    text-align: center;
+    margin: 90px 0px;
+}
+ul{
+    list-style: none;
+}
+.form-input{
+    margin: 20px 0px;
+}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'deposit/css/deposit.css' %}">
+<div class="main">
+    <div class="deposit-form">
+<form method="post">
+    {% csrf_token%}
+<div>
+    <p class="deposit-title"> DEPOSIT FORM </p>
+    {% for field in form%}
+        <div>{{field}}{{field.errors}}</div>
+    {% endfor %}
+    {{form.non_field_errors}}
+    <button type="submit" class="deposit-button"> DEPOSIT </button>
+</div>
+</form>
+</div>
+</div>
+<script src="{% static 'deposit/js/deposit.js'%}"></script>
+<script>
+    let data = "{{data|escapejs}}";
+    if (data){
+        console.log(data);
+        data = JSON.parse(data);
+        alert(`SUCCESS
+        \n Amount Deposited: ${data["amount-deposited"]}`);
+        
+    }
+</script>
+{% endblock %}
+

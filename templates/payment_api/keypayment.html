@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content%}
+{% load static %}
+<link rel="stylesheet" href="{%static 'payment_api/css/keypayment.css'%}">
+<h4> API KEY AQUISITION FORM</h4>
+<div class="form-div">
+    <form method="post">
+        {% csrf_token %}
+            {% for field in form %}
+            <div class="field-div">
+                <div class="field-label">
+                    {{field.label}}:
+                </div>
+                <div class="field-name">
+                    {{field}}
+                </div>
+                <div class="field-error-div">
+                    {{ field.errors }}
+                </div>
+            </div>
+            {% endfor %}
+        {{ form.non_field_errors }}
+
+        <div class="btn-div">
+            <button type="submit" class="submit-btn">
+                Pay
+            </button>
+        </div>
+    </form>
+</div>
+<script src="{% static 'payment_api/js/keypayment.js'%}">
+
+</script>
+{% endblock%}

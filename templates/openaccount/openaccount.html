@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{%block content%}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'openaccount.css'%}">
+{% if user.is_authenticated %}
+    <div class="form-div">
+    <div> What is your account PIN</div>
+        <form method="post">
+            {% csrf_token %}
+            
+            {% for field in form %}
+            <div>
+                {{field}} {{field.errors}}
+            </div>
+            {% endfor %}
+            {{form.non_field_errors}}
+            <button type="submit" class="btn btn-secondary"> GET ACCOUNT </button>
+        </form>
+    </div>
+
+{% else %}
+    <div>
+        You need to login first
+        <a href="{% url 'mylogin' %}"><button class="login btn btn-secondary"> Login </button></a>
+    </div>
+{% endif %}
+<script>
+    let accountData = "{{accountData|escapejs}}";
+    if (accountData !== ""){
+        console.log(typeof(accountData))
+        accountData = JSON.parse(accountData)
+        console.log(accountData)
+        alert(`Client: ${accountData["client"]}
+Account Number: ${accountData["accountNumber"]}`)
+    }
+</script>
+{% endblock %}

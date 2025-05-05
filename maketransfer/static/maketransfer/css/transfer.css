@@ -1,0 +1,31 @@
+input{
+    padding: 7px 7px;
+    border-radius: 7px;    
+    margin: 3px 0px;
+    width:190px;
+}
+
+ul{
+    list-style: none;
+}
+
+.acc-of-sender{
+    padding: 7px 7px;
+    border-radius: 7px;    
+    margin: 3px 0px;
+    width:200px;
+    font-size: 15px;
+}
+.trans-amount-input{
+    padding: 7px 7px;
+    border-radius: 7px;    
+    margin: 3px 0px;
+    width:190px;
+}
+.transfer-form{
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+.list-group-item{
+    width:350px;
+}

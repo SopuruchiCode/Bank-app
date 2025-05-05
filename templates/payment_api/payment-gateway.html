@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Payment </title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'payment_api/css/payment-gateway.css'%}">
+</head>
+<body>
+    <div class='body-div'>
+        <div class="form-div">
+            <form method="post">
+                {% for field in form%}
+                    <div class="field-div">
+                        <div class="field">
+                            {{ field }}
+                        </div>
+                        <div>
+                            {{ field.errors }}
+                        </div>
+                    </div>
+                {% endfor%}
+                <div>
+                    {{ form.non_field_errors }}
+                </div>
+                <div class="submit-div">
+                    <button type="submit" class="submit-btn">
+                        Pay
+                    </button>
+                </div>
+                <div class="sponsors-div">
+                    powered by <span> DJANBANK </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'payment_api/js/payment-gateway.js' %}"> </script>
+</body>
+</html>

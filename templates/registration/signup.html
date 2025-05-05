@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Create Bank Profile {% endblock%}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'signup.css' %}">
+<form method="post">
+    {% csrf_token %}
+    <div>  CREATE BVN FORM </div>
+    <div class="form">
+    {% for field in form %}
+        <div> {{field}} {{field.errors}}</div>
+    {% endfor %}
+    <div>{{form.non_field_errors}}</div>
+    <div><button type="submit" class="signup btn btn-secondary"> Sign-up </button></div>
+    </div>
+    
+</form>
+<a href="{% url 'mylogin' %}"><button class="login btn btn-secondary"> Login </button></a>
+<script>
+    let bvn = "{{bvn}}"
+    let name= "{{name}}"         // sorry for the code here, I have not learned how to use API's yet
+    if(bvn !== ""){
+        alert(`Your bvn: ${bvn} name:${name}`);
+        bvn = "";
+    }
+
+</script>
+{% endblock %}

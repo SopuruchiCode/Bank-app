@@ -1,0 +1,104 @@
+.base-main{
+  margin-top: 72px;
+}
+.sidenav {
+    margin-top:72px; 
+    height: 100%;
+    width: 160px;
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color:#262d32; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    margin-right: 10px;
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #73cdf7;
+  }
+  
+.history-main{
+  margin-left: 300px;
+  margin-top: 20px;
+}
+table{
+  margin-bottom: 3000px;
+  border-radius: 10px;
+}
+.table{
+  background-color: white;
+}
+.deposit-table,.transfer-table{
+  width : 1100px;
+}
+.withdrawal-title{
+  text-align: left;
+  margin-left: 470px;
+}
+.my-table1{
+  background-color: white;
+  width:1000px;
+  border-radius: 10px;
+  padding-top: 50px;
+  /* margin-top: 190px; */
+
+}
+.transaction-option{
+  margin-bottom: 10px;
+  margin-top: 20px;
+  font-size: 25px;
+}
+.transaction-option:hover{
+  color: rgb(36, 193, 204);
+  cursor: pointer;
+}
+.coupon-display{
+  font-size: 1px;
+}
+/* .title-and-table{
+  width: 1000px;
+} */
+.container{
+  display: flex;
+  margin-bottom: 0px;
+  width: 1000px;
+  text-align: left;
+  /* height:40px; */
+  padding-top: 10px;
+  /* margin-bottom: 0px; */
+  background-color: rgb(6, 67, 113);/*6 67 113*/
+  overflow: hidden;
+  position: fixed; /*Set the navbar to fixed position */
+  /* top: 0; Position the navbar at the top of the page */
+  /* width: 100%; Full width */
+}
+.con{
+  flex: 1;
+  text-align: center;
+  margin: 0px 10px;
+  padding: 8px 0px;
+  border-radius: 2px;
+
+}
+.con-claimed{
+  background-color: Black;
+}
+.con-unclaimed{
+  background-color: black;
+}
+.my-active{
+  background-color: white;
+  color: black;
+}

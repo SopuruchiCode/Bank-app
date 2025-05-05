@@ -1,0 +1,15 @@
+.balance-div{
+    background-color: white;
+    color: black;
+    display: block;
+    padding: 10px 10px;
+    margin: 15px 15px;
+}
+
+.transaction{
+    text-align: center;
+}
+
+.request,.name{
+    text-align: center;
+}
