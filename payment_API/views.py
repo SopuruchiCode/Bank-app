@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect, reverse
 from django.http import JsonResponse
-from .models import PRICE_OF_KEY_PER_DAY, EpaymentSubscription, Transaction_detail, DJANBANK_ACCOUNT_MODEL,DJAN_PIN,PaymentLogging
+from .models import PRICE_OF_KEY_PER_DAY, EpaymentSubscription, Transaction_detail, PaymentLogging
+from openaccount.models import Account
 from .forms import KeyPaymentForm,payment_gateway_form
 from django.views.decorators.csrf import csrf_exempt
 from decimal import Decimal
@@ -66,6 +67,8 @@ def payment_result_page(request):
 def payment_gateway_page(request):
     context = {}
     form = payment_gateway_form()
+    DJANBANK_ACCOUNT_MODEL = Account.objects.get(account_number="44996971")
+    DJAN_PIN = DJANBANK_ACCOUNT_MODEL.pin
 
     if request.method == 'GET':
         client_id = request.GET.get('client-id', None)

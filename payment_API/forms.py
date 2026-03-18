@@ -1,5 +1,5 @@
 from django import forms
-from .models import EpaymentSubscription,PRICE_OF_KEY_PER_DAY,DJANBANK_ACCOUNT_MODEL
+from .models import EpaymentSubscription,PRICE_OF_KEY_PER_DAY
 from openaccount.models import WithdrawalLog,Account,InsufficientbalanceError,WrongPinError
 from math import ceil
 
@@ -56,7 +56,7 @@ class KeyPaymentForm(forms.ModelForm):
         if duration <= 0:
             raise forms.ValidationError("Duration can't be less than 1 day")
         if ceil(duration) != duration:
-            raise form.validationError('Please duration days is meant to be a whole number')
+            raise forms.ValidationError('Please duration days is meant to be a whole number')
         return duration
 
     def clean_coupon_code(self):
@@ -74,6 +74,8 @@ class KeyPaymentForm(forms.ModelForm):
             
     def clean(self):
         cleaned_data = super(KeyPaymentForm,self).clean()
+        DJANBANK_ACCOUNT_MODEL = Account.objects.get(account_number="44996971")
+        DJAN_PIN = DJANBANK_ACCOUNT_MODEL.pin
         total_price = PRICE_OF_KEY_PER_DAY * cleaned_data.get('duration')
 
         coupon_code = cleaned_data.get("coupon_code")

@@ -9,8 +9,7 @@ from openaccount.models import Account
 
 USERMODEL = get_user_model()
 PRICE_OF_KEY_PER_DAY = 200.00
-DJANBANK_ACCOUNT_MODEL = Account.objects.get(account_number="44996971")
-DJAN_PIN = DJANBANK_ACCOUNT_MODEL.pin
+
 
 def keyGenerator(length=30) -> str:
     return ''.join(choices((digits+ascii_letters),k=length))
@@ -54,12 +53,13 @@ class EpaymentSubscription(models.Model):
 
 
 class Transaction_detail(models.Model):
-    client_id = models.CharField(max_length=30)
+    client_id = models.CharField(max_length=255)
     merchant_id = models.ForeignKey(EpaymentSubscription,on_delete=models.SET_NULL, null=True)
-    transaction_id_client = models.CharField(max_length=30, unique=True)
+    transaction_id_client = models.CharField(max_length=255, unique=True)
     amount = models.DecimalField(max_digits=15,decimal_places=2)
     callback_code = models.CharField(max_length=16)
     callback_url = models.TextField()
+    completed = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.id}'
