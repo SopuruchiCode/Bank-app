@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = False
 
 # ALLOWED_HOSTS = ['192.168.0.1', 'localhost', '127.0.0.1']
-ALLOWED_HOSTS = ["https://bank-app-t2e1.onrender.com"]
+ALLOWED_HOSTS = ["bank-app-t2e1.onrender.com"]
 
 
 # Application definition
