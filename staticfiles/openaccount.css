@@ -1,0 +1,37 @@
+div{
+    text-align: center;
+}
+
+ul{
+    list-style: none;
+}
+
+.account-form{
+    text-align: center;
+}
+
+.form-div{
+    margin: 10px 10px;
+    text-align: center;
+}
+
+input{
+    padding: 7px 7px;
+    border-radius: 7px;    
+    margin: 3px 0px;
+    width:200px;
+}
+button{
+    font-size:12px;
+}
+.errorlist{
+    font-size: 13px;
+    color:aquamarine;
+}
+.bvn-choice{
+    padding: 7px 7px;
+    border-radius: 7px;    
+    width:200px;
+    margin: 3px 0px;
+    font-size: 17px;
+}

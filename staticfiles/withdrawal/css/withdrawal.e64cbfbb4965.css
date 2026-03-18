@@ -1,0 +1,29 @@
+input,select{
+    padding: 7px 7px;
+    border-radius: 7px;    
+    margin: 3px 0px;
+    width:190px;
+    border: none;
+}
+button{
+    margin-top: 20px;
+    background-color:white ;
+    color: black;
+    border-style: none;
+    border-radius: 5px;
+    padding: 3px 7px;
+    font-weight: 500;
+
+}
+.form-title{
+    font-size: 20px;
+}
+.withdraw-main{
+    background-color: #6C757D;
+    display: inline-block;
+    width: 400px;
+    padding: 20px 20px;
+    border-color: white;
+    border-radius: 10px;
+    margin-top: 40px;
+}
