@@ -7,6 +7,8 @@ from string import digits
 from random import choices
 import json
 
+def health(request):
+    return HttpResponse("OK")
 def homepage(request):
     context = {}
     user = request.user
